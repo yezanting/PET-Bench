@@ -46,7 +46,7 @@ To load PET-Bench using the Hugging Face `datasets` library:
 from datasets import load_dataset
 
 # Load the entire dataset
-dataset = load_dataset("your-username/PET-Bench")
+dataset = load_dataset("TZT21999/PET-Bench")
 
 # Load a specific level
 level1_dataset = load_dataset("TZT21999/PET-Bench", "PET_Tracer_Identification")
