@@ -24,7 +24,7 @@ The benchmark addresses a critical gap in medical AI: while current MLLMs excel 
 PET-Bench serves as a rigorous testbed for developing safer, visually grounded MLLMs for PET and other functional modalities.
 
 <div align="center">
-  <img src="Fig1.jpg" alt="PET-Bench Overview" width="800">
+  <img src="Fig1.jpg" alt="PET-Bench Overview" width="1000">
 </div>
 
 ## Dataset Structure
@@ -62,7 +62,6 @@ level1_dataset = load_dataset("TZT21999/PET-Bench", "PET_Tracer_Identification")
 
 PET-Bench tasks are evaluated by accuracy on multiple-choice questions. For CoT-based evaluation, use the provided prompts and auxiliary LLM scorer (details in the paper).
 
-**The Evaluation will be available at https://github.com/yezanting/PET-Bench**
 
 ## Requirements
 
