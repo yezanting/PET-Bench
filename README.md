@@ -79,9 +79,17 @@ print("Downloaded to:", local_dir)
 
 ### Evaluation
 
-PET-Bench tasks are evaluated by accuracy on multiple-choice questions. For CoT-based evaluation, use the provided prompts and auxiliary LLM scorer (details in the paper).
+PET-Bench tasks are evaluated by accuracy on multiple-choice questions. For CoT-based evaluation, use the provided prompts and auxiliary LLM scorer.
 
-**The Evaluation will be available at https://github.com/yezanting/PET-Bench**
+1. We have provided a sample of the Lingshu version on this github. According to the different model call logics, the adaptation test can be conducted simply by changing them.
+
+2.We also support VLMEvalKit. The test can be conducted by converting the data format to a format supported by VLMEvalKit. To get started:
+Visit the [VLMEvalKit Quickstart Guide](https://github.com/open-compass/VLMEvalKit/blob/main/docs/en/Quickstart.md) for installation instructions.
+
+## Acknowledgements
+Greatly appreciate the tremendous effort for the following projects!
+- [VLMEvalKit](https://github.com/open-compass/VLMEvalKit/tree/main)
+
 
 ## Requirements
 
