@@ -1,6 +1,6 @@
 # Unveiling and Bridging the Functional Perception Gap in MLLMs: Atomic Visual Alignment and Hierarchical Evaluation via PET-Bench
 
-[![Hugging Face Dataset](https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-blue)](https://huggingface.co/datasets/TZT21999/PET-Bench)
+[![Hugging Face Dataset](https://img.shields.io/badge/�%20Hugging%20Face-Dataset-blue)](https://huggingface.co/datasets/TZT21999/PET-Bench)
 [![GitHub Code](https://img.shields.io/badge/GitHub-Code-black)](https://github.com/yezanting/PET-Bench)
 
 ## Description
@@ -23,10 +23,6 @@ The benchmark addresses a critical gap in medical AI: while current MLLMs excel 
 
 PET-Bench serves as a rigorous testbed for developing safer, visually grounded MLLMs for PET and other functional modalities.
 
-<div align="center">
-  <img src="Fig1.jpg" alt="PET-Bench Overview" width="1000">
-</div>
-
 ## Dataset Structure
 
 The dataset is organized into hierarchical levels, with each level containing QA pairs, images, and annotations. The structure is as follows:
@@ -44,24 +40,48 @@ For detailed statistics on class distributions and curation protocols, refer to 
 
 ## Usage
 
-### Loading the Dataset
+### Download & Extract (Recommended)
 
-To load PET-Bench using the Hugging Face `datasets` library:
+Due to the large number of small files, the dataset is distributed on Hugging Face as compressed shards under `shards/` (tracked by Git LFS).
+
+#### Option A: Git + Git LFS
+
+```bash
+git clone https://huggingface.co/datasets/TZT21999/PET-Bench
+cd PET-Bench
+git lfs pull
+
+# Verify shard integrity
+sha256sum -c SHA256SUMS
+
+# Extract all shards into ./data
+mkdir -p data
+for f in shards/*.tar.zst; do
+  tar --zstd -xf "$f" -C data
+done
+```
+
+#### Option B: Python (download snapshot)
 
 ```python
-from datasets import load_dataset
+from huggingface_hub import snapshot_download
 
-# Load the entire dataset
-dataset = load_dataset("TZT21999/PET-Bench")
-
-# Load a specific level
-level1_dataset = load_dataset("TZT21999/PET-Bench", "PET_Tracer_Identification")
+local_dir = snapshot_download(
+    repo_id="TZT21999/PET-Bench",
+    repo_type="dataset",
+)
+print("Downloaded to:", local_dir)
 ```
+
+#### Manifest
+
+`manifest/manifest.jsonl` records the mapping from each original file path to its corresponding shard.
 
 ### Evaluation
 
 PET-Bench tasks are evaluated by accuracy on multiple-choice questions. For CoT-based evaluation, use the provided prompts and auxiliary LLM scorer (details in the paper).
 
+**The Evaluation will be available at https://github.com/yezanting/PET-Bench**
 
 ## Requirements
 
