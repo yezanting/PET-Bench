@@ -157,6 +157,5 @@ Level 2 needs a multi-label evaluator with a declared set-comparison policy. A s
 | BF16 or CUDA errors | Check GPU support and the installed PyTorch/CUDA combination against model dependencies |
 | Out of GPU memory at Level 5 | Check model placement and image resolution; document any resolution or slice-count changes because they alter the comparison |
 | A resumed run reports few or zero evaluated samples | Inspect the appended CoT CSV; the summary reflects only new samples |
-| Good-looking rationales but poor DD accuracy | Analyze answer correctness separately from text plausibility and verify the extraction rule |
 
-For reproducible reporting, save dataset and model revisions, code commit, dependency versions, hardware, generation settings, prompt, parser, intended sample count, completed count, failure count, and raw-output logs. AVA comparisons also require the training configuration and patient-level split across Levels 1–5.
+For reproducible reporting, save dataset and model revisions, code commit, dependency versions, hardware, generation settings, prompt, parser, intended sample count, completed count, failure count, and raw-output logs. AVA runs also require the training configuration and patient-level split across Levels 1–5.
